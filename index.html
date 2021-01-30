@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curise Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="all.min.css">
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main class="main-content container">
+
+        <div class="booking-content">
+            <h1>Cruise Queen</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book./p>
+        </div>
+
+
+        <div class="booking-form">
+            <h3>Book Ocean Time</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <div class="input-group f-class">
+                <div>
+                    <label for="">First Class ($150)</label>
+                    <input id="ticket-quantity-1" class="inp-style inp-width" type="number" name="" value="1">
+                </div>
+                <div class="plus-minus-btn">
+                    <button id="countplus-first"><i class="fas fa-plus"></i></button>
+                    <button id="countminus-first"><i class="fas fa-minus"></i></button>
+                 </div>
+            </div>
+            
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy ($100)</label>
+                    <input id="ticket-quantity-2" class="inp-style inp-width" type="number" name="" value="1">
+                </div>
+                <div class="plus-minus-btn">
+                   <button id="countplus-eco"><i class="fas fa-plus"></i></button>
+                   <button id="countminus-eco"><i class="fas fa-minus"></i></button>
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p>$ <span id="sub-total-price">00</span></p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p>$50</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p>$550</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-style">Book Now</button>
+        </div>
+    </main>
+<script>
+    document.getElementById('countplus-first').addEventListener('click', function(){
+     const countInput = document.getElementById('ticket-quantity-1');
+     const ticketQuantity = parseInt(countInput.value)
+     const ticketNewFirstQuantity = ticketQuantity + 1;
+     countInput.value = ticketNewFirstQuantity;
+    
+    
+    })
+
+    document.getElementById('countminus-first').addEventListener('click', function(){
+     const countInput = document.getElementById('ticket-quantity-1');
+     const ticketQuantity = parseInt(countInput.value)
+     const ticketNewFirstQuantity = ticketQuantity - 1;
+     if(ticketQuantity<=0){
+        ticketNewFirstQuantity = 1;
+     }
+     countInput.value = ticketNewFirstQuantity;
+    
+   
+    })
+
+
+    document.getElementById('countplus-eco').addEventListener('click', function(){
+     const countInput = document.getElementById('ticket-quantity-2');
+     const ticketQuantity = parseInt(countInput.value)
+     const ticketNewEcoQuantity = ticketQuantity + 1;
+     countInput.value = ticketNewEcoQuantity;
+    
+    })
+
+      document.getElementById('countminus-eco').addEventListener('click', function(){
+     const countInput = document.getElementById('ticket-quantity-2');
+     const ticketQuantity = parseInt(countInput.value)
+     const ticketNewEcoQuantity = ticketQuantity - 1;
+     if(ticketQuantity<=0){
+        ticketNewEcoQuantity = 1;
+     }
+     countInput.value = ticketNewEcoQuantity;
+     
+
+    })
+function calculateTotal(){
+    const firstCountInput = document.getElementById('ticket-quantity-1');
+    firstCount = parseInt(firstCountInput.value);
+
+    const ecoCountInput = document.getElementById('ticket-quantity-2');
+    const ecoCount = parseInt(ecoCountInput.value);
+
+    const subTotalPrice =  firstCount * 150 + ecoCount * 100;
+    document.getElementById('sub-total-price').innerText = subTotalPrice;
+
+}
+   
+  
+
+</script>
+    
+</body>
+
+</html>
